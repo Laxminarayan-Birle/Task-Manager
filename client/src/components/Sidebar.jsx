@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 const Sidebar = () => {
   return (
-    <div className="bg-indigo-500 min-h-[100vh] sm:min-h-screen w-[5rem] sm:w-[19rem] flex flex-col gap-4 roboto-regular">
+    <div className="bg-slate-900 min-h-[100vh] sm:min-h-screen w-[5rem] sm:w-[19rem] flex flex-col gap-4 roboto-regular">
       <div className="flex items-center gap-2 justify-center h-16 text-white text-2xl font-bold mt-6">
         <GrTask />
         <span className="sm:block hidden">Task Manager</span>

@@ -6,6 +6,7 @@ import { addTask, updateTask } from "../store/taskSlice";
 import { useNavigate } from "react-router-dom";
 import { Loadpage } from "../store/Loadslice";
 import { addFormdata } from "../store/FormSlice";
+import {setshowform} from "../store/ShowFormSlice"
 const AddTask = () => {
   const isedit = useSelector((state) => state.showform);
   const Editdata = useSelector((state) => state.formdata);
@@ -81,6 +82,7 @@ const AddTask = () => {
     });
     dispatch(Loadpage());
     dispatch(addFormdata([]));
+    dispatch(setshowform(false));
     navigate("/");
   };
 
@@ -149,7 +151,7 @@ const AddTask = () => {
                   value={formData.priority}
                   onChange={handleChange}
                 >
-                  <option value="High">HIgh</option>
+                  <option value="High">High</option>
                   <option value="Medium">Medium</option>
                   <option value="Low">Low</option>
                 </select>
@@ -213,7 +215,7 @@ const AddTask = () => {
             </div> */}
             <button
               type="submit"
-              className="mt-8 w-full p-3 bg-indigo-500 rounded-lg text-center text-white hover:bg-indigo-300"
+              className="mt-8 w-full p-3 bg-slate-900 rounded-lg text-center text-white hover:bg-slate-400"
             >
               {isedit ? "Edit Task" : "Add Task"}
             </button>

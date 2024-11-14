@@ -36,7 +36,7 @@ const InProgressTask = () => {
         <div className="text-center mt-[17vh] sm:mt-[30vh]">
           <p>
             No tasks found.{" "}
-            <Link to="/addTask" className="text-indigo-500">
+            <Link to="/addTask" className="text-indigo-600 font-[500]">
               Add a new task
             </Link>
           </p>

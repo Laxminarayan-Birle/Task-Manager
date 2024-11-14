@@ -35,11 +35,11 @@ const AllTasks = () => {
   return (
     <div className="w-[70%] mx-auto">
       <div className="mt-10">
-        <h1 className="text-3xl ubuntu-bold my-8 mx-8 text-center">All Task</h1>
+        <h1 className="text-3xl font-[1000] ubuntu-bold my-8 mx-8 text-center">All Task</h1>
         <div className=" flex flex-row mt-10 justify-between items-center sm:flex-row gap-4 flex-col-reverse">
           <div className="flex  flex-col sm:flex-row gap-2">
             <div className="flex  flex-col sm:flex-row gap-2 items-center">
-              <p className="font-bold text-xl text-indigo-500">
+              <p className="font-bold text-xl text-slate-900">
                 <FaSearch />{" "}
               </p>
               <input
@@ -54,7 +54,7 @@ const AllTasks = () => {
             </div>
           </div>
           <div className="flex gap-2 flex-col sm:flex-row items-center">
-            <p className="font-bold text-xl text-indigo-400">Sort </p>
+            <p className="font-bold text-xl text-slate-900">Sort </p>
             <div className="flex justify-center gap-[10px] sm:gap-3 flex-row items-center">
               <select
                 className="bg-gray-200 p-2 rounded-xl"
@@ -103,7 +103,7 @@ const AllTasks = () => {
         <div className="text-center mt-[17vh] sm:mt-[30vh]">
           <p>
             No tasks found.{" "}
-            <Link to="/addTask" className="text-indigo-500">
+            <Link to="/addTask" className="text-indigo-600 font-[500]">
               Add a new task
             </Link>
           </p>
