@@ -1,47 +1,106 @@
-# Answers to technical questions
+# Task Management Application
 
-> How long did you spend on the coding test?
+## Table of Contents
+- [Overview](#overview)
+- [Live Project](#live-project)
+- [Installation](#installation)
+- [Features](#features)
 
-### Answer
+## Overview
 
-I dedicated approximately 12-15 hours to the EliteFit coding test. During this timeframe, I prioritized the implementation of core features such as task creation, modification, deletion, and categorization. My primary goal was to optimize functionality and deliver a seamless user experience within the given constraints.
+This Task Manager is a simple web app that helps users organize and track tasks. It allows for easy creation, editing, and categorization of tasks, with features like due dates and priority levels. Ideal for both personal and team use, it provides a clear view of task progress and deadlines.
 
->What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+## Live Project 
 
-### Answer
+[Click Here](https://elite-task-six.vercel.app/)
 
-A significant addition to the latest React version (React 19) is the React Compiler. This innovative feature streamlines React code by directly compiling components into JavaScript, reducing the need for manual optimization techniques like useMemo and useCallback. Notably, I didn't employ these hooks in the current project, as the compiler effectively handles performance optimization
+## Installation
+
+This guide will take you through the steps needed to set up and run the website on your local machine. No prior knowledge of React.js and Tailwind.css.
+
+## Step By Step Installation
+
+### Step 1: Clone the Repository
+First, you need to clone the repository from GitHub to your local machine. Open the terminal (Command Prompt on Windows) and run the following command:
+
+    git clone https://github.com/Laxminarayan-Birle/EliteTask.git
+
+### Step 2: Navigate to the Project Directory
+Change your directory to the project folder that you just cloned. In the terminal, run:
+
+    cd EliteTask/client
+
+### Step 3: Install Node.js Dependencies
+Your project uses Node.js packages, which are listed in the package.json file. You need to install these packages using npm, which is included with Node.js. Run the following command in the terminal:
+
+    npm i
+
+### Step 4: Run the Project
+Use the following command to run the project. 
+### `npm start`
+- Runs the app in the development mode.
+- Open [localhost](http://localhost:3000) to view it in your browser. The page will reload when you make changes.
+You may also see any lint errors in the console.
+
+### `npm test`
+
+- Launches the test runner in the interactive watch mode. See the section about running tests for more information.
+
+### `npm run build`
+
+- Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+- The build is minified and the filenames include the hashes.
+
+---
+### Your app is ready !!!
+---
+
+## Features 
+
+### Dashboard
+
+- Task List: View all tasks on a central dashboard.
+
+    ![ALL Task](/Image_assets/all_task.png?raw=true "Add Task")
+
+- Sections:
+ 
+    - Upcoming: Shows tasks due soon.
+
+        ![Upcoming Task](/Image_assets/upcoming_task.png?raw=true "Upcoming Task")
+
+    - Overdue: Displays tasks past their due date.
+        ![Missed Task](/Image_assets/missed_task.png?raw=true "Overdue")
+
+    - Completed: Lists tasks marked as completed.
+    ![Completed](/Image_assets/complete.png?raw=true "Completed")
+
+### Task Management
+
+- Add New Tasks: Users can add tasks with fields for title, description, due date, and 
+priority level.
+
+    ![Add Task](/Image_assets/add_task.png?raw=true "Add Task")
+
+- Edit and Delete Tasks: Users can modify or remove tasks as needed.
+
+    ![Edit Task](/Image_assets/edit_task.png?raw=true "Edit Task")
 
 
->How would you track down a performance issue in production? Have you ever had to do this?
+### Priority Levels
 
-### Answer
-To troubleshoot performance issues in production, I would systematically follow these steps:
+- Three Priority Levels: Tasks can be set as High, Medium, or Low priority.
+- Update Priority: Users can adjust task priorities.
 
-1.**Browser Developer Tools:** Inspect the console for errors and performance warnings.
+### Search and Filter
 
-2.**Performance Testing Tools:** Utilize Lighthouse or PageSpeed Insights to identify specific bottlenecks.
-3.**Network Analysis:** Monitor network requests and response times using the browser's network panel.
+- Search: Quickly search tasks by title or description.
 
-4.**Server Log Review:** Analyze server logs for errors and slow processing.
+    ![Search Task](/Image_assets/search.png?raw=true "Edit Task")
 
-5.**JavaScript Profiling:** Profile JavaScript code to pinpoint performance-intensive areas.
+- Filter by Priority and Completion: Filter tasks by priority level or completion status for organized task management.
+    ![Edit Task](/Image_assets/sorting.png?raw=true "Edit Task")
 
-6.**Asset Optimization:** Optimize images, CSS, and JavaScript assets for efficient delivery.
-7.**Caching and CDN:** Implement server-side caching or a CDN to reduce latency.
+    ![Priority Filter](/Image_assets/priority.png?raw=true "Priority Task")
 
-I have previously encountered and resolved performance issues by applying these strategies.
-
-> If you had more time, what additional features or improvements would you consider adding to the task management application?
-
-### Answer
-
-1.**User Authentication:** Implement user login and session-based task persistence.
-
-2.**Notifications:** Integrate email or SMS notifications for task deadlines.
-
-3.**Progress Tracking:** Visualize task progress with progress bars.
-
-4.**API Integration:** Develop RESTful APIs for efficient data access and manipulation.
-
-5.**Database:** Add database to store the data.
