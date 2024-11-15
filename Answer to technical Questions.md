@@ -1,19 +1,19 @@
 # Answers to technical questions
 
-> How long did you spend on the coding test?
+>### How long did you spend on the coding test?
 
 ### Answer
 
-I dedicated approximately 12-15 hours to the EliteFit coding test. During this timeframe, I prioritized the implementation of core features such as task creation, modification, deletion, and categorization. My primary goal was to optimize functionality and deliver a seamless user experience within the given constraints.
+I dedicated approximately 15-18 hours to the EliteFit coding test. During this timeframe, I prioritized the implementation of core features such as task creation, modification, deletion, and categorization. My primary goal was to optimize functionality and deliver a seamless user experience within the given constraints.
 
->What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+>### What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
 ### Answer
 
 A significant addition to the latest React version (React 19) is the React Compiler. This innovative feature streamlines React code by directly compiling components into JavaScript, reducing the need for manual optimization techniques like useMemo and useCallback. Notably, I didn't employ these hooks in the current project, as the compiler effectively handles performance optimization
 
 
->How would you track down a performance issue in production? Have you ever had to do this?
+> ### How would you track down a performance issue in production? Have you ever had to do this?
 
 ### Answer
 To troubleshoot performance issues in production, I would systematically follow these steps:
@@ -32,7 +32,7 @@ To troubleshoot performance issues in production, I would systematically follow 
 
 I have previously encountered and resolved performance issues by applying these strategies.
 
-> If you had more time, what additional features or improvements would you consider adding to the task management application?
+>### If you had more time, what additional features or improvements would you consider adding to the task management application?
 
 ### Answer
 
