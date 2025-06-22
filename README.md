@@ -100,7 +100,12 @@ priority level.
     ![Search Task](/Image_assets/search.png?raw=true "Edit Task")
 
 - Filter by Priority and Completion: Filter tasks by priority level or completion status for organized task management.
+
     ![Edit Task](/Image_assets/sorting.png?raw=true "Edit Task")
 
     ![Priority Filter](/Image_assets/priority.png?raw=true "Priority Task")
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 756f5401c2bb2be3dd6051d3fb05057c973a10b1

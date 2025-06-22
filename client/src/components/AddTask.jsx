@@ -17,7 +17,7 @@ const AddTask = () => {
     description: Editdata.description,
     startDate: Editdata.startDate || new Date(),
     endDate: Editdata.endDate,
-    status: Editdata.status || "Pending",
+    status: "Pending" || Editdata.status ,
     assignee: Editdata.assignee,
     priority: Editdata.priority || "High",
   });
@@ -87,7 +87,7 @@ const AddTask = () => {
   };
 
   return (
-    <div className="w-[70%] mx-auto">
+    <div className="w-[70%] mx-auto ml-4">
       <div className="">
         <h1 className="text-3xl font-bold my-8 text-center">
           {isedit ? "Edit Task" : "Add New Task"}
@@ -126,7 +126,7 @@ const AddTask = () => {
                   Description
                 </label>
                 <textarea
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none block w-full resize-none bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="description"
                   placeholder="Task Description"
                   name="description"
