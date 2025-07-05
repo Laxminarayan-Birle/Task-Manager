@@ -13,8 +13,7 @@ const Card = ({ label, count, bg, link }) => {
           
         </div>
         <div
-          className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${bg}`}
-        >
+          className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${bg}`}>
           {label.charAt(0)}
         </div>
       </div>
@@ -91,7 +90,7 @@ const StatsTask = () => {
   return (
     <div className="mx-auto w-[80%]">
       {/* <Sidebar /> */}
-      <div className="flex flex-col w-full justify-between">
+      <div className="flex flex-col flex-wrap w-full justify-between">
         <h1 className="sm:text-2xl text-3xl font-bold my-8 text-center">
           Tasks
         </h1>

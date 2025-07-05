@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = JSON.parse(localStorage.getItem("tasks")) || [];
+const initialState = {};
 
 const FormSlice = createSlice({
   name: "formdata",
-  initialState: [],
+  initialState,
   reducers: {
     addFormdata: (state, action) => {
       return action.payload;

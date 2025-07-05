@@ -4,30 +4,106 @@ import AddTask from "./components/AddTask";
 import Sidebar from "./components/Sidebar";
 import AllTasks from "./components/AllTasks";
 import CompleteTask from "./components/CompleteTask";
-import InProgressTask from "./components/InProgressTask";
-// import Dashboard from "./components/StatsTask";
+import UpcomingTask from "./components/UpcomingTask";
 import PendingTask from "./components/PendingTask";
-import Deployed from "./components/Deployed";
-// import Deferred from "./components/Deferred";
+import MissedTask from "./components/MissedTask";
+import Register from "./components/Register";
+import Login from "./components/Login";
 import ManageTask from "./components/ManageTask";
-import "./App.css";
 import StatsTask from "./components/StatsTask";
+import ProtectedRoute from "./components/ProtectedRoute";
+import "./App.css";
 
 const App = () => {
   return (
     <div className="flex h-full">
-      <Sidebar />
       <Routes>
-        <Route path="/" element={<AllTasks />} />
-        <Route path="/addTask" element={<AddTask />} />
-        <Route path="/allTask" element={<AllTasks />} />
-        <Route path="/completeTask" element={<CompleteTask />} />
-        <Route path="/pendingTask" element={<PendingTask />} />
-        <Route path="/deployedTask" element={<Deployed />} />
-        {/* <Route path="/deferredTask" element={<Deferred />} /> */}
-        <Route path="/ManageTasks" element={<ManageTask />} />
-        <Route path="/inProgressTask" element={<InProgressTask />} />
-        <Route path="/statsTask" element={<StatsTask/>} />
+        {/* Public routes */}
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <AllTasks />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <AddTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/allTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <AllTasks />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/completeTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <CompleteTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/pendingTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <PendingTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/missedTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <MissedTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/ManageTasks"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <ManageTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/upcomingTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <UpcomingTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/statsTask"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+              <StatsTask />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

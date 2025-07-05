@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import TaskCard from "./TaskCard";
-import { useSelector } from "react-redux";
-import { selectAllTasks } from "../store/taskSlice";
+import { useSelector ,useDispatch} from "react-redux";
+import { selectCompletedTasks,fetchCompletedTasks} from "../store/taskSlice";
 import { Link } from "react-router-dom";
 const CompleteTask = () => {
-  const tasks = useSelector(selectAllTasks);
-  const completedTasks = tasks.filter((task) => task.status === "Completed");
+  
+    const dispatch = useDispatch();
+  const completedTasks = useSelector(selectCompletedTasks);
+
+  useEffect(() => {
+    dispatch(fetchCompletedTasks());
+  }, [dispatch]);
+  // const completedTasks = tasks.filter((task) => task.status === "Completed");
 
   return (
     <div className="w-[70%] mx-auto">
@@ -15,8 +22,8 @@ const CompleteTask = () => {
         <div className="flex flex-wrap gap-y-4 gap-x-14 justify-center overflow-y-scroll mt-5 h-[80vh] sm:h-[80vh]">
           {completedTasks.map((task) => (
             <TaskCard
-              key={task.id}
-              id={task.id}
+              key={task._id}
+              id={task._id}
               title={task.title}
               description={task.description}
               startDate={task.startDate}

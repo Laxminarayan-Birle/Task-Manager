@@ -1,0 +1,1 @@
+export {default as photo} from "./TaskManager.png"

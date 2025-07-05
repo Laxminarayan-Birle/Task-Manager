@@ -1,27 +1,34 @@
+import { useEffect } from "react";
 import TaskCard from "./TaskCard";
-import { useSelector } from "react-redux";
-import { selectAllTasks } from "../store/taskSlice";
+import { useSelector,useDispatch } from "react-redux";
+import { selectUpcomingTasks,fetchUpcomingTasks} from "../store/taskSlice";
 import { Link } from "react-router-dom";
-const InProgressTask = () => {
-  const tasks = useSelector(selectAllTasks);
-  const today = new Date();
+const UpcomingTask = () => {
+ 
+    const dispatch = useDispatch();
+  const upcomingTask = useSelector(selectUpcomingTasks);
 
-  const completedTasks = tasks.filter((task) => {
-    const taskEndDate = new Date(task.endDate);
-    return taskEndDate >= today;
-  });
+  useEffect(() => {
+    dispatch(fetchUpcomingTasks());
+  }, [dispatch]);
+  // const today = new Date();
+
+  // const completedTasks = tasks.filter((task) => {
+  //   const taskEndDate = new Date(task.endDate);
+  //   return taskEndDate >= today;
+  // });
 
   return (
     <div className="w-[70%] mx-auto">
       <div className="mt-10">
         <h1 className="text-3xl font-bold my-8 text-center">Upcoming Tasks</h1>
       </div>
-      {completedTasks.length > 0 ? (
-        <div className="flex flex-wrap gap-y-4 gap-x-14 overflow-y-scroll mt-5 h-[50vh] sm:h-[80vh] justify-center">
-          {completedTasks.map((task) => (
+      {upcomingTask.length > 0 ? (
+        <div className="flex flex-wrap gap-y-4 gap-x-14 overflow-y-scroll mt-5 h-[70vh] sm:h-[70vh] justify-center">
+          {upcomingTask.map((task) => (
             <TaskCard
-              key={task.id}
-              id={task.id}
+              key={task._id}
+              id={task._id}
               title={task.title}
               description={task.description}
               startDate={task.startDate}
@@ -46,4 +53,4 @@ const InProgressTask = () => {
   );
 };
 
-export default InProgressTask;
+export default UpcomingTask;

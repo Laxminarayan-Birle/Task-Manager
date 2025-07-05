@@ -1,25 +1,32 @@
 import { useEffect } from "react";
 import TaskCard from "./TaskCard";
 import { useSelector,useDispatch } from "react-redux";
-import { selectPendingTasks,fetchPendingTasks } from "../store/taskSlice";
+import { selectMissedTasks ,fetchMissedTasks} from "../store/taskSlice";
 import { Link } from "react-router-dom";
 
-const PendingTask = () => {
+const MissedTask = () => {
     const dispatch = useDispatch();
-  const pendingTask = useSelector(selectPendingTasks);
+  const missedTasks = useSelector(selectMissedTasks);
 
   useEffect(() => {
-    dispatch(fetchPendingTasks());
+    dispatch(fetchMissedTasks());
   }, [dispatch]);
   
+  // const today = new Date();
+  // today.setHours(0, 0, 0, 0); // Set time to start of the day for accurate comparison
+
+  // const completedTasks = tasks.filter((task) => {
+  //   const taskEndDate = new Date(task.endDate);
+  //   return taskEndDate < today;
+  // });
   return (
     <div className="w-[70%] mx-auto">
       <div className="mt-10">
-        <h1 className="text-3xl font-bold my-8 text-center">Pending Tasks</h1>
+        <h1 className="text-3xl font-bold my-8 text-center">Missed Tasks</h1>
       </div>
-      {pendingTask.length > 0 ? (
-        <div className="flex flex-wrap gap-y-4 gap-x-14 overflow-y-scroll mt-5 h-[80vh] sm:h-[80vh] justify-center">
-          {pendingTask.map((task) => (
+      {missedTasks.length > 0 ? (
+        <div className="flex flex-wrap gap-y-4 gap-x-14 overflow-y-scroll mt-5 h-[70vh] sm:h-[70vh] justify-center">
+          {missedTasks.map((task) => (
             <TaskCard
               key={task._id}
               id={task._id}
@@ -47,4 +54,4 @@ const PendingTask = () => {
   );
 };
 
-export default PendingTask;
+export default MissedTask;

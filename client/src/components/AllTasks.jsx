@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import TaskCard from "./TaskCard";
-import { useSelector } from "react-redux";
-import { selectAllTasks } from "../store/taskSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectAllTasks, fetchAllTasks } from "../store/taskSlice";
 import { Link } from "react-router-dom";
-import { IoFilterSharp, IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 
 const AllTasks = () => {
@@ -13,48 +12,49 @@ const AllTasks = () => {
   const [statusFilter, setStatusFilter] = useState("All");
   const [priorityFilter, setPriorityFilter] = useState("All");
   const [searchKey, setSearchKey] = useState("");
-  const [filteredTasks, setfilteredTasks] = useState([]);
-  useEffect(() => {
-    const filteredTask = tasks.filter((task) => {
-      const isStatusMatch =
-        statusFilter === "All" || task.status === statusFilter;
-      const isPriorityMatch =
-        priorityFilter === "All" || task.priority === priorityFilter;
+  const [filteredTasks, setFilteredTasks] = useState([]);
+  const dispatch = useDispatch();
 
-      // Check if searchKey matches task title or description (case-insensitive)
-      const isSearchKeyMatch =
+  useEffect(() => {
+    dispatch(fetchAllTasks());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const filtered = tasks.filter((task) => {
+      const isStatusMatch =
+        statusFilter === "All" ||
+        task.status.toLowerCase() === statusFilter.toLowerCase();
+      const isPriorityMatch =
+        priorityFilter === "All" ||
+        task.priority.toLowerCase() === priorityFilter.toLowerCase();
+      const isSearchMatch =
         searchKey === "" ||
         task.title.toLowerCase().includes(searchKey.toLowerCase()) ||
         task.description.toLowerCase().includes(searchKey.toLowerCase());
-
-      return isStatusMatch && isPriorityMatch && isSearchKeyMatch;
+      return isStatusMatch && isPriorityMatch && isSearchMatch;
     });
-    setfilteredTasks(filteredTask);
+    setFilteredTasks(filtered);
   }, [load, tasks, searchKey, statusFilter, priorityFilter]);
-  console.log(searchKey, statusFilter, priorityFilter);
+
   return (
     <div className="w-[70%] mx-auto">
       <div className="mt-10">
         <h1 className="text-3xl font-[1000] ubuntu-bold my-8 mx-8 text-center">All Task</h1>
-        <div className=" flex flex-row mt-10 justify-between items-center sm:flex-row gap-4 flex-col-reverse">
-          <div className="flex  flex-col sm:flex-row gap-2">
-            <div className="flex  flex-col sm:flex-row gap-2 items-center">
-              <p className="font-bold text-xl text-slate-900">
-                <FaSearch />{" "}
-              </p>
-              <input
-                className="bg-gray-200 p-2 rounded-xl w-[60vw] sm:w-auto appearance-none"
-                type="text"
-                value={searchKey}
-                onChange={(e) => {
-                  setSearchKey(e.target.value);
-                }}
-                placeholder="Search"
-              />
-            </div>
+        <div className="flex mt-10 justify-between items-center sm:flex-row gap-4 flex-col-reverse">
+          <div className="flex flex-col sm:flex-row gap-2 items-center">
+            <p className="sm:block hidden font-bold text-xl text-slate-900">
+              <FaSearch />
+            </p>
+            <input
+              className="bg-gray-200 p-2 rounded-xl w-[60vw] sm:w-auto appearance-none"
+              type="text"
+              value={searchKey}
+              onChange={(e) => setSearchKey(e.target.value)}
+              placeholder="Search"
+            />
           </div>
           <div className="flex gap-2 flex-col sm:flex-row items-center">
-            <p className="font-bold text-xl text-slate-900">Sort </p>
+            <p className="font-bold text-xl text-slate-900">Sort</p>
             <div className="flex justify-center gap-[10px] sm:gap-3 flex-row items-center">
               <select
                 className="bg-gray-200 p-2 rounded-xl"
@@ -83,12 +83,12 @@ const AllTasks = () => {
         </div>
       </div>
 
-      {filteredTasks?.length > 0 ? (
+      {filteredTasks.length > 0 ? (
         <div className="flex flex-col gap-y-5 mt-10 overflow-auto h-[70vh] sm:h-[70vh]">
           {filteredTasks.map((task) => (
             <TaskCard
-              key={task.id}
-              id={task.id}
+              key={task._id}
+              id={task._id}
               title={task.title}
               description={task.description}
               startDate={task.startDate}
